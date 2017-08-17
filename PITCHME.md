@@ -4,14 +4,14 @@
 
 ### What's a unit?
   - Intuitively, one can view a unit as the smallest testable part of an application.
-  - While Units can be many things, most testable units that are challenging to writing code in react are going to be the functions within your react components or Plain Old Java classes and other exported functions
+  - While Units can be many things, most unit tests that will be challenging to write in react are going to be the functions within your react components or Plain Old Java classes and other exported functions
   - Hopefully your writing units/functions well
 
 ---
 
 ### Methods Should Generally Do One Thing
   - This is not always possible but it is preferable.
-  - Even If a method needs to be destructed into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
+  - Even if a method needs to be destructed into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
   - It's easier to read, understand, change and unit test methods that have one job to do.
 
 ---
@@ -25,9 +25,8 @@
   - Can modify the component state
   - Can kick off a redux action
   - Send an http request out to an api
-  - Can modify html
   - Can kick off another function
-  - Maybe some other things I forgot to put in here
+  ### All of these can be unit tested
 
 ---
 
@@ -36,6 +35,8 @@
 +++
 
 # So you can verify that your code works as expected!
+
++++
 
   - Unit Tests are fast!  Providing a very quick feedback loop allowing faster problem solving and development.
   - No need for the Dom. It only needs to interact with the code.  It works the same in your local machine as in Docker, Jenkins, Cloud Foundry etc.
