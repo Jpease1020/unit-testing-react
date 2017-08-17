@@ -2,6 +2,10 @@
 
 ---
 
+This needs to be a discussion rather than a presentation. Ask questions, give feedback, challenge what I present.
+
+---
+
 ### What's a unit?
   - Intuitively, one can view a unit as the smallest testable part of an application.
   - While Units can be many things, most unit tests that will be challenging to write in react are going to be the functions within your react components or Plain Old Java classes and other exported functions
@@ -60,7 +64,8 @@
 ---
 
 ### Shallow + .instance()
-- My new favorite testing tool is the .instance() method called on a shallow rendered react component or calling the class prototype function - Why?
+- My new favorite testing tool is the .instance() method called on a shallow rendered react component or calling the class prototype function
+- Why?
 
 +++
 
@@ -70,14 +75,68 @@
 ---
 
 ## .instance()
+  - A function on the shallow render method from Enzyme
   - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions including the render as well as state and any imported classes and functions (verify).
 
 ---
 
-## Class.prototype.myFunction()
+### Class.prototype.myFunction()
 - Using the prototype can be very helpful when mocking a function.  Sometimes you don't want the function your testing to actually kick off an action of api call so you need to mock it.  
 
 +++
 
 - Then you can access the function via Class.prototype and overwrite it with a mock. You need to save off the original function, then overwrite it, test it then change it back before using it again in the test suite depending on it's scope. Example - ComplianceBuddy-frontend Header.test:54
+
 ---
+
+### Tools Used
+  - React
+  - Jest
+  - Enzyme
+  - http://airbnb.io/enzyme/docs/api/ShallowWrapper/shallow.html
+  - http://airbnb.io/enzyme/docs/api/ShallowWrapper/instance.html
+
+---
+
+# Test Examples
+### Compliance Buddy ProductsPage_test
+
+Test line: 125
+  - test the component renders another component
+
+Test line: 130
+  - tests the child component receives the correct props
+
+Test line: 139
+  - tests the component will render something based on the state passed to it through props
+
+Test line: 183
+  - tests mocking an api call that a function dispatches
+
+Test line: 276
+	- tests a higher order function
+	(one thats returning another function)
+
+Test line: 282
+	- a function that returns a function that takes an event
+
+Test line: 288
+	- tests a function takes an event
+	- calls another function
+	- which happens to be an action
+	- which the function gets from the props.
+
+Test line: 300
+	- tests a function thats returning a promise
+
+### ComplianceCategory Test
+Test line: 143
+  - tests a function that returns different data object depending on data passed in
+
+### Ripcord/ recordTest
+
+Test line: 60
+  - tests a function that changes the state of the object
+
+### Header Test
+  - mocks local storage
