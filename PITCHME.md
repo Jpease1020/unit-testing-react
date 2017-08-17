@@ -74,7 +74,17 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 
 ---
 
+## Shallow
+  - http://airbnb.io/enzyme/docs/api/shallow.html
+  - http://airbnb.io/enzyme/docs/api/ShallowWrapper/shallow.html
+  - https://facebook.github.io/react/docs/shallow-renderer.html
+  - You can think of the shallowRenderer as a "place" to render the component you're testing, and from which you can extract the component's output.
+  - shallowRenderer.render() is similar to ReactDOM.render() but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+
+---
+
 ## .instance()
+  - - http://airbnb.io/enzyme/docs/api/ShallowWrapper/instance.html
   - A function on the shallow render method from Enzyme
   - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions including the render as well as state and any imported classes and functions (verify).
 
@@ -93,8 +103,6 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
   - React
   - Jest
   - Enzyme
-  - http://airbnb.io/enzyme/docs/api/ShallowWrapper/shallow.html
-  - http://airbnb.io/enzyme/docs/api/ShallowWrapper/instance.html
 
 ---
 
