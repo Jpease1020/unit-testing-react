@@ -126,21 +126,22 @@ Test line: 183
 ---
 
 Test line: 276
-	- tests a higher order function
-	(one thats returning another function)
+  - tests a higher order function
+	  (one thats returning another function)
 
 Test line: 282
-	- a function that returns a function that takes an event
+  - a function that returns a function that takes an event
+  
 ---
 
 Test line: 288
-	- tests a function takes an event
-	- calls another function
-	- which happens to be an action
-	- which the function gets from the props.
+  - tests a function takes an event
+  - calls another function
+  - which happens to be an action
+  - which the function gets from the props.
 
 Test line: 300
-	- tests a function thats returning a promise
+  - tests a function thats returning a promise
 
 ---
 
