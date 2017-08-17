@@ -59,7 +59,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
   - You can test that the function returned the expected data
   - You can test that it kicked of another function or action (haven't figured out how to test that it kicked off an api call but it's probably doable)
   - You can test the state of the class before and after a function modifies it
-  - You can test/assert on the html it returns (kind of long and cluncky so maybe there's a faster way using other renders and find()). Example - ComplianceBuddy-frontend Header.test:54
+  - You can test/assert on the html it returns by testing the render() function but it's probably faster to just use the find() method on shallow
 
 ---
 
@@ -95,7 +95,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 
 +++
 
-- Then you can access the function via Class.prototype and overwrite it with a mock. You need to save off the original function, then overwrite it, test it then change it back before using it again in the test suite depending on it's scope. Example - ComplianceBuddy-frontend Header.test:54
+- Then you can access the function via Class.prototype.myFunction and overwrite it with a jest.fn() mock. You need to save off the original function, then overwrite it, test it then change it back before using it again in the test suite depending on it's scope. Example - ComplianceBuddy-frontend Header.test:54
 
 ---
 
@@ -115,11 +115,15 @@ Test line: 125
 Test line: 130
   - tests the child component receives the correct props
 
+---
+
 Test line: 139
   - tests the component will render something based on the state passed to it through props
 
 Test line: 183
   - tests mocking an api call that a function dispatches
+
+---
 
 Test line: 276
 	- tests a higher order function
@@ -127,6 +131,7 @@ Test line: 276
 
 Test line: 282
 	- a function that returns a function that takes an event
+---
 
 Test line: 288
 	- tests a function takes an event
@@ -137,12 +142,15 @@ Test line: 288
 Test line: 300
 	- tests a function thats returning a promise
 
+---
+
 ### ComplianceCategory Test
 Test line: 143
   - tests a function that returns different data object depending on data passed in
 
-### Ripcord/ recordTest
+---
 
+### Ripcord/ recordTest
 Test line: 60
   - tests a function that changes the state of the object
 
