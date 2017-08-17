@@ -8,15 +8,15 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 
 ### What's a unit?
   - Intuitively, one can view a unit as the smallest testable part of an application.
-  - While Units can be many things, unit tests in react are going to be testing the functions within your react components.
+  - While Units can be many things, the unit tests we are focusing on today are the functions within your react components.
   - Well written functions and clean code are generally much easier to test. (think SRP...)
 
 ---
 
 ### Methods Should Generally Do One Thing
   - This is not always possible but it is preferable.
-  -Having a parent function with a descriptive name that runs all of your smaller SRP functions is generally preferable in    both your src and test code.
-  would have the line above instead of this. more clear to me anyway. Even if a method needs to be refactored into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
+  - Having a parent function with a descriptive name that runs all of your smaller SRP functions is generally preferable in both your src and test code.
+  - Even if a method needs to be refactored into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
   - It's easier to read, understand, change and unit test methods that have one job to do.
 
 ---
@@ -87,7 +87,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 ## .instance()
   - - http://airbnb.io/enzyme/docs/api/ShallowWrapper/instance.html
   - A function on the shallow render method from Enzyme
-  - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions(render, state, imported classes, functions) -- pretty sure this is right 
+  - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions(render, state, imported classes, functions) -- pretty sure this is right
 
 ---
 
