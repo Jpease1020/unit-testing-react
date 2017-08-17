@@ -26,6 +26,7 @@
   - Can kick off a redux action
   - Send an http request out to an api
   - Can kick off another function
+
   ### All of these can be unit tested
 
 ---
@@ -40,11 +41,12 @@
 
   - Unit Tests are fast!  Providing a very quick feedback loop allowing faster problem solving and development.
   - No need for the Dom. It only needs to interact with the code.  It works the same in your local machine as in Docker, Jenkins, Cloud Foundry etc.
+  - If you find your units are difficult to test because too many things are happening, write better code aka. go refactor your function into smaller more single-responsibility units!
 
 ---
 
-#### These functions can all be tested by
-  1. Passing what ever data it needs to do it's job
+#### Component functions can all be tested by
+  1. Passing what ever data it needs to do it's job including a dom event which is just an object
   2. Calling the function
   3. Asserting it did it's job and produced the expected result.
 
@@ -57,7 +59,10 @@
 
 ---
 
-### My new favorite testing tool is the .instance() method called on a shallow rendered react component or calling the class prototype function - Why?
+### Shallow + .instance()
+- My new favorite testing tool is the .instance() method called on a shallow rendered react component or calling the class prototype function - Why?
+
++++
 
   - The component is just a class.
   - Both .instance() and Class.prototype.myFunction() let you access the functions of that class directly and test them as individual units of code and assert on exactly what they are expected to do or return.
@@ -65,8 +70,6 @@
 ---
 
 ## .instance()
-  - `const headerComponent = shallow(<Header />, document.createElement('div'))`
-  - `let instance = headerComponent.instance()` (show example)
   - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions including the render as well as state and any imported classes and functions (verify).
 
 ---
