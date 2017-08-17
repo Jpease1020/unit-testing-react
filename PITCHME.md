@@ -8,21 +8,22 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 
 ### What's a unit?
   - Intuitively, one can view a unit as the smallest testable part of an application.
-  - While Units can be many things, most unit tests that will be challenging to write in react are going to be the functions within your react components or Plain Old Java classes and other exported functions
-  - Hopefully your writing units/functions well
+  - While Units can be many things, unit tests in react are going to be testing the functions within your react components.
+  - Well written functions and clean code are generally much easier to test. (think SRP...)
 
 ---
 
 ### Methods Should Generally Do One Thing
   - This is not always possible but it is preferable.
-  - Even if a method needs to be destructed into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
+  -Having a parent function with a descriptive name that runs all of your smaller SRP functions is generally preferable in    both your src and test code.
+  would have the line above instead of this. more clear to me anyway. Even if a method needs to be refactored into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
   - It's easier to read, understand, change and unit test methods that have one job to do.
 
 ---
 
 ### React Class Functions
   - Can create or modify and return some data (data can be a string, array, html section, object, null etc)
-  - Can return html with or without dynamic data depending on data passed in or taken from another place such as the main or local state
+  - Can return html with or without dynamic data depending on the data passed in or taken from another place such as the main or local state
 
 +++  
 
@@ -45,19 +46,19 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 
   - Unit Tests are fast!  Providing a very quick feedback loop allowing faster problem solving and development.
   - No need for the Dom. It only needs to interact with the code.  It works the same in your local machine as in Docker, Jenkins, Cloud Foundry etc.
-  - If you find your units are difficult to test because too many things are happening, write better code aka. go refactor your function into smaller more single-responsibility units!
+  - If you find your units are difficult to test because too many things are happening, write better code aka. go refactor your function into smaller more single-responsibility units! SRP FTW!!!!!!!
 
 ---
 
 #### Component functions can all be tested by
-  1. Passing what ever data it needs to do it's job including a dom event which is just an object
+  1. Passing the data it needs to do it's job including a dom event which is really just an object
   2. Calling the function
   3. Asserting it did it's job and produced the expected result.
 
 ---
 
-  - You can test that the function returned the expected data
-  - You can test that it kicked of another function or action (haven't figured out how to test that it kicked off an api call but it's probably doable)
+  - You can test that the function returned the expected result
+  - You can test that it kicked off another function or action (haven't figured out how to test that it kicked off an api call but it's probably doable)
   - You can test the state of the class before and after a function modifies it
   - You can test/assert on the html it returns by testing the render() function but it's probably faster to just use the find() method on shallow
 
@@ -79,19 +80,19 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
   - http://airbnb.io/enzyme/docs/api/ShallowWrapper/shallow.html
   - https://facebook.github.io/react/docs/shallow-renderer.html
   - You can think of the shallowRenderer as a "place" to render the component you're testing, and from which you can extract the component's output.
-  - shallowRenderer.render() is similar to ReactDOM.render() but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+  - shallowRenderer.render() is similar to ReactDOM.render() but it doesn't require DOM and only renders a single level deep. This means you can test parent components in isolation, rather than having to render their child components.
 
 ---
 
 ## .instance()
   - - http://airbnb.io/enzyme/docs/api/ShallowWrapper/instance.html
   - A function on the shallow render method from Enzyme
-  - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions including the render as well as state and any imported classes and functions (verify).
+  - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions(render, state, imported classes, functions) -- pretty sure this is right 
 
 ---
 
 ### Class.prototype.myFunction()
-- Using the prototype can be very helpful when mocking a function.  Sometimes you don't want the function your testing to actually kick off an action of api call so you need to mock it.  
+- Using the prototype can be very helpful when mocking a function.  Sometimes you don't want the function you're testing to actually kick off an action or api call so you need to mock it.  
 
 +++
 
