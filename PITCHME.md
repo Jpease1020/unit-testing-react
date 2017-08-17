@@ -2,13 +2,20 @@
 
 ---
 
+### Tools Used
+  - React
+  - Jest
+  - Enzyme
+
+---
+
 This needs to be a discussion rather than a presentation. Ask questions, give feedback, challenge what I present.
 
 ---
 
 ### What's a unit?
   - Intuitively, one can view a unit as the smallest testable part of an application.
-  - While Units can be many things, the unit tests we are focusing on today are the functions within your react components.
+  - While Units can be many things, the units we are focusing on today are the functions within your react components.
   - Well written functions and clean code are generally much easier to test. (think SRP...)
 
 ---
@@ -16,6 +23,9 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 ### Methods Should Generally Do One Thing
   - This is not always possible but it is preferable.
   - Having a parent function with a descriptive name that runs all of your smaller SRP functions is generally preferable in both your src and test code.
+  
++++
+
   - Even if a method needs to be refactored into smaller parts that each do one thing, hopefully the parent function has one main job to do that can be described by it's name.
   - It's easier to read, understand, change and unit test methods that have one job to do.
 
@@ -51,7 +61,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 ---
 
 #### Component functions can all be tested by
-  1. Passing the data it needs to do it's job including a dom event which is really just an object
+  1. Passing the data it needs to do it's job including a dom event which creates and sends over an object
   2. Calling the function
   3. Asserting it did it's job and produced the expected result.
 
@@ -59,7 +69,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 
   - You can test that the function returned the expected result
   - You can test that it kicked off another function or action (haven't figured out how to test that it kicked off an api call but it's probably doable)
-  - You can test the state of the class before and after a function modifies it
+  - You can test the state of the component before and after a function modifies it
   - You can test/assert on the html it returns by testing the render() function but it's probably faster to just use the find() method on shallow
 
 ---
@@ -71,7 +81,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 +++
 
   - The component is just a class.
-  - Both .instance() and Class.prototype.myFunction() let you access the functions of that class directly and test them as individual units of code and assert on exactly what they are expected to do or return.
+  - Both .instance() and Component.prototype.yourFunction() let you access the functions of that class directly and test them as individual units of code and assert on exactly what they are expected to do or return.
 
 ---
 
@@ -87,7 +97,7 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 ## .instance()
   - - http://airbnb.io/enzyme/docs/api/ShallowWrapper/instance.html
   - A function on the shallow render method from Enzyme
-  - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions(render, state, imported classes, functions) -- pretty sure this is right
+  - Using the .instance() works on an instance of that component/class and therefore will have access to the rest of the class including all functions(render, state, imported classes, functions)
 
 ---
 
@@ -97,13 +107,6 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 +++
 
 - Then you can access the function via Class.prototype.myFunction and overwrite it with a jest.fn() mock. You need to save off the original function, then overwrite it, test it then change it back before using it again in the test suite depending on it's scope. Example - ComplianceBuddy-frontend Header.test:54
-
----
-
-### Tools Used
-  - React
-  - Jest
-  - Enzyme
 
 ---
 
