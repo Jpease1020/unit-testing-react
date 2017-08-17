@@ -107,8 +107,8 @@ This needs to be a discussion rather than a presentation. Ask questions, give fe
 ---
 
 # Test Examples
-### Compliance Buddy ProductsPage_test
 
+Compliance Buddy ProductsPage_test
 Test line: 125
   - test the component renders another component
 
@@ -131,7 +131,7 @@ Test line: 276
 
 Test line: 282
   - a function that returns a function that takes an event
-  
+
 ---
 
 Test line: 288
@@ -145,15 +145,15 @@ Test line: 300
 
 ---
 
-### ComplianceCategory Test
+ComplianceCategory Test
 Test line: 143
   - tests a function that returns different data object depending on data passed in
 
 ---
 
-### Ripcord/ recordTest
+Ripcord/ recordTest
 Test line: 60
   - tests a function that changes the state of the object
 
-### Header Test
+Ripcord/ Header Test
   - mocks local storage
